@@ -10,7 +10,7 @@ import (
 func commandMap(config *config, _ string) error {
 	var url string
 	if config.PrevURL == nil {
-		url = URL + "?offset=0&limit=20"
+		url = URL + "location-area/?offset=0&limit=20"
 	} else {
 		url = config.NextURL
 	}

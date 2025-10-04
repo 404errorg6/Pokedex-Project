@@ -10,9 +10,10 @@ import (
 )
 
 var (
-	URL   = "https://pokeapi.co/api/v2/location-area/"
-	cfg   config
-	cache = internal.NewCache(time.Second * 5)
+	MyPokemons = map[string]any{}
+	URL        = "https://pokeapi.co/api/v2/"
+	cfg        config
+	cache      = internal.NewCache(time.Second * 5)
 )
 
 type config struct {
@@ -83,6 +84,11 @@ func getCommands() map[string]cliCommand {
 			name:        "explore",
 			description: "Shows available pokemons in specified area",
 			callback:    commandExplore,
+		},
+		"catch": {
+			name:        "catch",
+			description: "Tries to catch specified pokemon(higher level pokemons are harder to catch)",
+			callback:    commandCatch,
 		},
 	}
 }

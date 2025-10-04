@@ -13,7 +13,7 @@ func commandExplore(config *config, area string) error {
 	}
 
 	fmt.Printf("Exploring %v...\n", area)
-	url := URL + area
+	url := URL + "location-area/" + area
 
 	var body []byte
 	if val, ok := cache.Get(url); ok { // Cache hit
