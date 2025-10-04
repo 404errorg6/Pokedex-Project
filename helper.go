@@ -10,8 +10,8 @@ import (
 )
 
 var (
+	URL   = "https://pokeapi.co/api/v2/location-area/"
 	cfg   config
-	times int
 	cache = internal.NewCache(time.Second * 5)
 )
 
@@ -30,7 +30,7 @@ type names struct {
 type cliCommand struct {
 	name        string
 	description string
-	callback    func(*config) error
+	callback    func(*config, string) error
 }
 
 func implementCache(key string) bool {
@@ -78,6 +78,11 @@ func getCommands() map[string]cliCommand {
 			name:        "mapb",
 			description: "Shows previous 20 locations",
 			callback:    commandBMap,
+		},
+		"explore": {
+			name:        "explore",
+			description: "Shows available pokemons in specified area",
+			callback:    commandExplore,
 		},
 	}
 }

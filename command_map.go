@@ -7,10 +7,10 @@ import (
 	"net/http"
 )
 
-func commandMap(config *config) error {
+func commandMap(config *config, _ string) error {
 	var url string
-	if times == 0 {
-		url = "https://pokeapi.co/api/v2/location-area/?offset=0&limit=20"
+	if config.PrevURL == nil {
+		url = URL + "?offset=0&limit=20"
 	} else {
 		url = config.NextURL
 	}
@@ -43,6 +43,5 @@ func commandMap(config *config) error {
 		fmt.Printf("%v\n", result.Name)
 	}
 
-	times += 1
 	return nil
 }

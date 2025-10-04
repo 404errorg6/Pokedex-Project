@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-func commandBMap(config *config) error {
+func commandBMap(config *config, _ string) error {
 	if config.PrevURL == nil {
 		fmt.Printf("you're on first page\n")
 		return nil
@@ -40,6 +40,5 @@ func commandBMap(config *config) error {
 		fmt.Printf("%v\n", result.Name)
 	}
 
-	times -= 1
 	return nil
 }
