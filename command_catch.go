@@ -18,7 +18,6 @@ func commandCatch(config *config, pokemon string) error {
 
 	if val, ok := cache.Get(url); ok {
 		body = val
-		fmt.Printf("🗿🗿🗿")
 	} else {
 		res, err := http.Get(url)
 		if err != nil {
@@ -51,7 +50,7 @@ func commandCatch(config *config, pokemon string) error {
 		chance = 1
 	}
 
-	if baseExp%chance == 0 {
+	if true {
 		MyPokemons[pokemon] = body
 		fmt.Printf("%v was caught\n", pokemon)
 		return nil
